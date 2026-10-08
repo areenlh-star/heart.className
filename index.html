@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กำลังใจให้แพรไหม 💗</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #ffd6e8, #e8d5ff);
+  overflow: hidden;
+}
+
+.card {
+  width: min(90%, 430px);
+  padding: 40px 25px;
+  text-align: center;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(170, 90, 140, .25);
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  color: #d94f91;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+button {
+  margin-top: 25px;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff70ad, #b86cff);
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(200, 80, 160, .3);
+  transition: .25s;
+}
+
+button:hover {
+  transform: scale(1.06);
+}
+
+.message {
+  display: none;
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff5fa;
+  border-radius: 20px;
+  color: #8c4c70;
+  line-height: 1.8;
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heart {
+  position: absolute;
+  bottom: -30px;
+  font-size: 22px;
+  animation: float 7s linear infinite;
+  opacity: .7;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: .8;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div style="font-size:55px;">🌷</div>
+
+  <h1>แพรไหม 💗</h1>
+
+  <p class="subtitle">
+    วันนี้อาจเหนื่อยหน่อย<br>
+    แต่เธอเก่งมากที่ยังเดินต่อมาถึงตรงนี้นะ
+  </p>
+
+  <button onclick="showMessage()">
+    💌 กดรับกำลังใจจากเรา 💌
+  </button>
+
+  <div class="message" id="message">
+    <strong>แพรไหม ไม่ว่าจะเจออะไรอยู่</strong><br>
+    ขอให้รู้ไว้นะว่าเธอไม่ได้อยู่คนเดียว 🌷<br>
+    ค่อย ๆ ผ่านมันไปทีละวันนะ<br>
+    ไม่ต้องเก่งตลอดเวลาก็ได้<br>
+    <strong>เธอเก่งกว่าที่คิดเสมอ 💖</strong>
+  </div>
+</div>
+
+<script>
+function showMessage() {
+  document.getElementById("message").style.display = "block";
+
+  for (let i = 0; i < 18; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["💗","💖","💕","🌸","✨"][Math.floor(Math.random()*5)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+  }
+}
+</script>
+
+</body>
+</html>
